@@ -1,0 +1,45 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,700);
+
+/*--------------------*/
+/* FINETUNE BOOTSTRAP */
+/*--------------------*/
+
+$body-bg: 						#E9E9E9;
+$font-family-sans-serif:		'Oxygen', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$navbar-height:					45px;
+$navbar-default-bg:				white;
+$navbar-default-brand-color:	#c0392b;
+$brand-primary:					#c0392b;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*-------------------------------------*/
+/* BRAND LOGO CENTERED + NAVBAR TUNING */
+/*-------------------------------------*/
+
+//center navbar
+.navbar-brand { 
+	font-weight: bold;
+	position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+}
+
+//put mobile toggle on top
+.navbar-toggle {
+	z-index:1;
+}
+
+//make sign up button red
+.red {
+	font-weight: bold;
+	color:#c0392b !important;
+}
+
+//helper class to center stuff
+.center { text-align: center; }
+
+//move content 50px down, because of navbar-fixed-top
+body { padding-top: 50px; }
