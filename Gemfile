@@ -8,6 +8,7 @@ gem 'jquery-rails'								# Use jquery as the JavaScript library
 gem 'turbolinks'								# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'jbuilder', '~> 2.0'						# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'bootstrap-sass', '~> 3.3.1'				# Bootstrap frontend framework
+gem 'devise'
 
 group :development, :test do
 	gem 'sqlite3'								# Use sqlite3 as the database for Active Record
