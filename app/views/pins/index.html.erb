@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -10,8 +11,8 @@
 
   <tbody>
     <% @pins.each do |pin| %>
-    <%= pin.user.name if pin.user %>
       <tr>
+        <td><%= pin.user.name if pin.user %></td>
         <td><%= pin.description %></td>
         <td><%= link_to 'Show', pin %></td>
           <% if pin.user == current_user %>
