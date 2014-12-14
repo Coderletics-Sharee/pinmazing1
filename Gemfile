@@ -16,9 +16,8 @@ gem 'aws-sdk'
 gem 'masonry-rails'
 
 group :development, :test do
-	gem 'sqlite3'								# Use sqlite3 as the database for Active Record
-	gem 'spring'								# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-end
+	gem 'sqlite3' end							# Use sqlite3 as the database for Active Record
+									# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
 group :production do 
 	gem 'pg'									# Use Postgres in production

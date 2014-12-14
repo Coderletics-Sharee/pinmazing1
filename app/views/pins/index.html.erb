@@ -1,7 +1,7 @@
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">
-      <%= link_to image_tag(pin.image.url(:medium)), pin %>
+      <%= link_to image_tag(pin.image.url(:medium), pin %>
       <div class="panel-body">
         <%= pin.user.name if pin.user %>
         <%= pin.description %>
@@ -11,10 +11,9 @@
         <% end %>
       </div>
     </div>
-  <% end %>
 </div>
 
 <br>
 
 <!-- try to get users to sign up or sign in, if they are not -->
-<%= render 'pages/signup' unless user_signed_in?%>
+<%= render 'pages/signup' unless user_signed_in? %>
