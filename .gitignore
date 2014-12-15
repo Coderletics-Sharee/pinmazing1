@@ -16,3 +16,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Make sure that pins are not pushed to heroku
+/public/system/*
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+.DS_Store
