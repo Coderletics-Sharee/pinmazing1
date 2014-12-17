@@ -5,11 +5,20 @@
       <div class="panel-body">
         <%= pin.user.name if pin.user %>
         <%= pin.description %>
-        <% if pin.user == current_user %>
-          <%= link_to 'Edit', edit_pin_path(pin) %>
-          <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </div>
+<!-- Allow to edit and delete pins, if user is creator -->
+        <% if current_user && pin.user == current_user %>
+        <div class="edit">
+          <%= link_to edit_pin_path(pin) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
+          <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+          <% end %>
+         </div>
+         <% end %>
+        </div> 
     </div>
   <% end %>
 </div>
