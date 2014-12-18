@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pins, dependent: :destroy # pins will be deleted, when account is deleted
+	
+	validates :name, presence: true
 end

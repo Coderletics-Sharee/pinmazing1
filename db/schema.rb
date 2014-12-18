@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213164048) do
+ActiveRecord::Schema.define(version: 20141218145038) do
+
+  create_table "comments", force: true do |t|
+    t.integer  "pin_user"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["pin_user"], name: "index_comments_on_pin_user"
 
   create_table "pins", force: true do |t|
     t.string   "description"
