@@ -7,5 +7,4 @@ class User < ActiveRecord::Base
 
   has_many :pins, dependent: :destroy # pins will be deleted, when account is deleted
 	
-	validates :name, presence: true
 end

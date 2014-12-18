@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Pin user:</strong>
-  <%= @comment.pin_user %>
+  <strong>Pin:</strong>
+  <%= @comment.pin_id %>
 </p>
 
 <p>
@@ -12,5 +12,3 @@
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>
-
-
