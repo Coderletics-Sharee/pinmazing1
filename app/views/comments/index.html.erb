@@ -15,8 +15,19 @@
         <td><%= comment.pin_user %></td>
         <td><%= comment.body %></td>
       </tr>
-    <% end %>
+      <% end %>
   </tbody>
+
+<div class="edit">
+<%= link_to edit_comment_path(comment) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
+          <%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+          <% end %>
+          </div>
 </table>
 
 <br>

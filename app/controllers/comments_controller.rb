@@ -25,15 +25,16 @@ def update
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: @comment, status: :created, location: @comment}
       else
-        format.html { render action: 'edit' }
+        format.html { render action: "edit" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
   
   def destroy
+  @comment = @pin.comments.find(params[:id])
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to comments_url }

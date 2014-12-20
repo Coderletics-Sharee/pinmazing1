@@ -2,15 +2,17 @@
 <p>
 	<strong>Posted <%= time_ago_in_words(comment.created_at) %> ago</strong><br>
 	<%= h(comment.body) %>
-</p>
-<p>
-  <%= link_to 'Edit', [comment.pin, comment],
-               method: :edit,
-               data: { confirm: 'Are you sure?' } %>
-</p>
-<p>
-  <%= link_to 'Delete', [comment.pin, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+</p>  
 <% end %>
+
+<div class="edit">
+     <%= link_to edit_comment_path(@comment) do %>
+      <span class="glyphicon glyphicon-edit"></span>
+      Edit
+    	<% end %>
+    <%= link_to @comment, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <span class="glyphicon glyphicon-trash"></span>
+      Delete
+    	<% end %>
+  	</div>
+

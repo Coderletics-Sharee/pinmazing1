@@ -1,7 +1,7 @@
 Rails.application.routes.draw do  
-resources :comments
+resources :comments 
 resources :pins do
-  resources :comments
+  resources :comments 
 end
 
   resources :pins
