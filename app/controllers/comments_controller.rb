@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
+before_action :authenticate_user!, except: [:index, :show]
   
+  def edit
+  end
+
   def create
     @pin = Pin.find(params[:pin_id])
     @comment = @pin.comments.create(params[:comment].permit(:body))
@@ -16,5 +20,27 @@ format.json { render json: @comment.errors, status: :unprocessable_entity}
 end
 end
 end
+
+def update
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  def destroy
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to comments_url }
+      format.json { head :no_content }
+    end
+  end 
 end
+
+    
 
