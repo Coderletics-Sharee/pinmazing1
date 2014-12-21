@@ -1,7 +1,7 @@
 <%= div_for(comment) do %>
 <p>
-	<strong>Posted <%= time_ago_in_words(comment.created_at) %> ago</strong><br>
-	<%= h(comment.body) %>
+  <strong>Posted <%= time_ago_in_words(comment.created_at) %> ago</strong><br>
+  <%= h(comment.body) %>
 </p>  
 <% end %>
 
@@ -9,10 +9,9 @@
      <%= link_to edit_comment_path(@comment) do %>
       <span class="glyphicon glyphicon-edit"></span>
       Edit
-    	<% end %>
+      <% end %>
     <%= link_to @comment, method: :delete, data: { confirm: 'Are you sure?' } do %>
       <span class="glyphicon glyphicon-trash"></span>
       Delete
-    	<% end %>
-  	</div>
-
+      <% end %>
+    </div>

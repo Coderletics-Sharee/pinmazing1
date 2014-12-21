@@ -1,4 +1,4 @@
-<h1>Listing comments</h1>
+h1>Listing comments</h1>
 
 <table>
   <thead>
@@ -12,6 +12,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
+      <td><%= link_to 'Show', @comment %></td> 
         <td><%= comment.pin_user %></td>
         <td><%= comment.body %></td>
       </tr>
