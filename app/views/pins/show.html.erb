@@ -7,7 +7,7 @@
   </div>
 
   <div class="panel-body user">
-    <%= @pin.user.name if @pin.user %>
+    <%= @pin.user.name if @pin.user %><br>
     <%= @pin.description%>
 <!-- allow to edit and delete, if user is creator -->
 <% if current_user && @pin.user == current_user %>
