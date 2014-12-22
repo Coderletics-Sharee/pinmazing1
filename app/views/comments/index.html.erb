@@ -1,4 +1,4 @@
-h1>Listing comments</h1>
+<!-- h1>Listing comments</h1>
 
 <table>
   <thead>
@@ -10,27 +10,27 @@ h1>Listing comments</h1>
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
+    <%# @comments.each do |comment| %>
       <tr>
-      <td><%= link_to 'Show', @comment %></td> 
+      <td><%=# link_to 'Show', @comment %></td> 
         <td><%= comment.pin_user %></td>
         <td><%= comment.body %></td>
       </tr>
-      <% end %>
+      <% #end %>
   </tbody>
 
 <div class="edit">
-<%= link_to edit_comment_path(comment) do %>
+<%= link_to edit_comment_path(comment) #do %>
             <span class="glyphicon glyphicon-edit"></span>
             Edit
-          <% end %>
-          <%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <% #end %>
+          <%= link_to comment, #method: :delete, data: { confirm: 'Are you sure?' } do %>
             <span class="glyphicon glyphicon-trash"></span>
             Delete
-          <% end %>
+          <% #end %>
           </div>
 </table>
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to #'New Comment', new_comment_path %> -->
