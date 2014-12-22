@@ -16,8 +16,8 @@ end
     @pin = current_user.pins.build
   end
 
-  def edit
-  end
+  #def edit
+  #end
 
   def create
     @pin = current_user.pins.build(pin_params)
