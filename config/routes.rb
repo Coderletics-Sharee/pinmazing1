@@ -8,7 +8,6 @@ end
 
   devise_for :users
   root "pins#index"
-  get "comment"=> "comments#index"
   get "imprint"=> "pages#imprint"
   get "contact"=> "pages#contact"
 

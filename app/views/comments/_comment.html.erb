@@ -5,10 +5,10 @@
   <%= h(comment.body) %>
     <% if current_user && comment.user == current_user %>
       <div class="edit">
-         <%#= link_to edit_comment_path do %>
-          <!-- <span class="glyphicon glyphicon-edit"></span>
-          Edit -->
-          <%# end %>
+         <%= link_to edit_comment_path do %>
+          <span class="glyphicon glyphicon-edit"></span>
+          Edit
+          <% end %>
         <%= link_to [comment.pin, comment], method: :delete, data: { confirm: 'Are you sure?' } do %>
           <span class="glyphicon glyphicon-trash"></span>
           Delete
