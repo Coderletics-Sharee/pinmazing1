@@ -14,6 +14,13 @@ gem 'devise'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'masonry-rails'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'simple_form'
+gem 'rails-i18n', '~> 4.0.3'
+gem 'devise-i18n' 
+gem 'will-paginate-i18n'
+gem 'i18n'
 
 group :development, :test do
 	gem 'sqlite3' end							# Use sqlite3 as the database for Active Record

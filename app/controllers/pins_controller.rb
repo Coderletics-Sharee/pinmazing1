@@ -5,8 +5,9 @@ class PinsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @pins = Pin.all
-  end
+    # order pins by creation date and max 3 pins per page, then paginator
+    @pins = Pin.all.order(created_at: :desc).paginate(page: params[:page], per_page: 3)
+end
 
   def show
   end
@@ -15,8 +16,8 @@ class PinsController < ApplicationController
     @pin = current_user.pins.build
   end
 
-  def edit
-  end
+  #def edit
+  #end
 
   def create
     @pin = current_user.pins.build(pin_params)
