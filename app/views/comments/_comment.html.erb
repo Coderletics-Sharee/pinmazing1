@@ -2,8 +2,10 @@
         <%= comment.user.name if comment.user %>
 <p>
   <strong>Posted <%= time_ago_in_words(comment.created_at) %> ago</strong><br>
-  <%= h(comment.body) %>
-    <% if current_user && comment.user == current_user %>
+  <%= h(comment.body) %>  
+  </p>
+<% if current_user && comment.user == current_user %>
+
       <div class="edit">
          <%= link_to edit_comment_path do %>
           <span class="glyphicon glyphicon-edit"></span>
@@ -14,8 +16,5 @@
           Delete
           <% end %>
       </div>
-    <% end %>
-</p>  
-<% end %>
-
-
+<% end %> 
+<% end %> 

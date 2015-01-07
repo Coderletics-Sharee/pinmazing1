@@ -1,7 +1,6 @@
-<%= simple_form_for [@pin, Comment.new] do |f| %>
-
+ <%= simple_form_for ([@pin, Comment.new]) do |f| %>
   <p>
-    <%= f.input :body, :label => "Comment", as: :text, input_html:{rows: "3"} %>
+    <%= f.input :body, :label => "New Comment", as: :text, input_html:{rows: "3"} %>
   </p>
-  <p> <%= f.submit "New Comment", class: "btn btn-primary" %></p>
-<% end %>
+  <p> <%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+  <% end %>
