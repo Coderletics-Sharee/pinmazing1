@@ -6,25 +6,23 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = @pin.comments.build(params[:comment].permit(:body))
+    @comment = Comment.new
   end
 
   def create
     @pin = Pin.find(params[:pin_id])
-    @comment = @pin.comments.build(params[:comment].permit(:body))
+    @comment = @pin.comments.create(comment_params)
     @comment.pin_id = @pin.id
     @comment.user_id = current_user.id
-    
-    respond_to do |format|
-  if @comment.save
-    format.html {redirect_to @pin, notice: "Comment was successfully created"}
-    format.json {render json: @pin, status: :created, location: @comment}
-  else
-    format.html {render action: 'new'}
-    format.json {render json: @comment.errors, status: :unprocessable_entity}
+    if @comment.save
+      flash[:success] = "Comment created!"
+      redirect_to pin_path(@pin)
+    else
+      flash[:error] = "No Comment created!"
+      redirect_to pin_path(@pin)
+    end  
+  
   end
-  end
-end
 
   def show
     @pin = Pin.find(params[:pin_id])
@@ -36,21 +34,17 @@ end
     @comment = @pin.comments.find(params[:id])
   end 
 
+
   def update
     @pin = Pin.find(params[:pin_id])
     @comment = @pin.comments.find(params[:id])
-    @pin = @comment.pin
-
-    respond_to do |format|
-    if @comment.update_attributes(params[:comment].permit(:body))
-    format.html {redirect_to @pin, notice: "Comment was successfully updated"}
-    format.json {render json: @pin, status: :created, location: @comment}
+    if @comment.update(comment_params)
+      redirect_to @pin, notice: 'Comment was successfully updated.'
     else
-    format.html {render action: 'edit'}
-    format.json {render json: @comment.errors, status: :unprocessable_entity}
+      render action: 'edit'
+    end
   end
-  end
-end
+
 
   def destroy
     @pin = Pin.find(params[:pin_id])
@@ -58,4 +52,10 @@ end
     @comment.delete
     redirect_to @pin
   end
+
+
+  private
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
 end

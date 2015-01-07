@@ -7,7 +7,7 @@
 <% if current_user && comment.user == current_user %>
 
       <div class="edit">
-         <%= link_to edit_comment_path do %>
+         <%= link_to edit_pin_comment_path(comment.pin, comment) do %>
           <span class="glyphicon glyphicon-edit"></span>
           Edit
           <% end %>
