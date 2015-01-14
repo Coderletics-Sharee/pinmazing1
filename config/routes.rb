@@ -1,4 +1,7 @@
 Rails.application.routes.draw do  
+scope "(:locale)", locale: /en|es|fr/ do
+end
+
 resources :comments 
 
 resources :pins do
@@ -8,6 +11,7 @@ end
   resources :pins
 
   devise_for :users
+  get '/:locale' => 'pins#index'
   root "pins#index"
   get "imprint"=> "pages#imprint"
   get "contact"=> "pages#contact"
