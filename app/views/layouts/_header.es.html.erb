@@ -22,13 +22,13 @@
         <li><%= link_to "Account settings", edit_user_registration_path %></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
-        <li><%= link_to "Log in", new_user_session_path %></li>
-        <li><%= link_to "Sign up", new_user_registration_path, class: "red" %></li>
+        <li><%= link_to "Iniciar", new_user_session_path %></li>
+        <li><%= link_to "Contratar", new_user_registration_path, class: "red" %></li>
         <% end %>
         <li><p class="lang">
-            English
+            <a href="/?locale=en">English</a>
             |
-            <a href="/?locale=es">Espanol</a>
+            Spanish
             |
             <a href="/?locale=fr">French</a>
             </p></li>
