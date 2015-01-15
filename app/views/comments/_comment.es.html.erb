@@ -1,0 +1,20 @@
+<%= div_for(comment) do %>
+        <%= comment.user.name if comment.user %>
+<p>
+  <strong>Anunciado el hace  <%= time_ago_in_words(comment.created_at) %></strong><br>
+  <%= h(comment.body) %>  
+  </p>
+<% if current_user && comment.user == current_user %>
+
+      <div class="edit">
+         <%= link_to edit_pin_comment_path(comment.pin, comment) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+          Editar
+          <% end %>
+        <%= link_to [comment.pin, comment], method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          Borrar
+          <% end %>
+      </div>
+<% end %> 
+<% end %> 

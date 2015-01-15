@@ -1,0 +1,6 @@
+<h1>Editer ce commentaire</h1>
+<%= simple_form_for [@pin, @comment] do |f| %> 
+  <%= render 'form', f: f %>
+<% end %>
+<%#= link_to 'Show', @comment %> 
+<%= link_to 'Retourner', comments_path %>

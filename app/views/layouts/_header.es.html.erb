@@ -16,11 +16,11 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
         <li><%= link_to new_pin_path do %>
-                <span class="glyphicon glyphicon-plus"></span> New Pin
+                <span class="glyphicon glyphicon-plus"></span> Nuevo Pin
             <% end %>
             </li>
-        <li><%= link_to "Account settings", edit_user_registration_path %></li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Cuenta", edit_user_registration_path %></li>
+        <li><%= link_to "Cerrar", destroy_user_session_path, method: :delete %></li>
         <% else %>
         <li><%= link_to "Iniciar", new_user_session_path %></li>
         <li><%= link_to "Contratar", new_user_registration_path, class: "red" %></li>
@@ -30,7 +30,7 @@
             |
             Spanish
             |
-            <a href="/?locale=fr">French</a>
+            <a href="/?locale=fr">Français</a>
             </p></li>
       </ul>
     </div><!-- /.navbar-collapse -->

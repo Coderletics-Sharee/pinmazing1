@@ -1,0 +1,7 @@
+<h1>Nuevo comentario</h1>
+
+<%= simple_form_for [@pin, Comment.new] do |f| %>
+	<%= render 'form', f: f %>
+<% end %>
+
+<%= link_to 'Volver', comments_path %>

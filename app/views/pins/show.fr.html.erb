@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= link_to 'Retourner', pins_path %>
+  </div>
+  <div class="panel-heading center">
+    <%= image_tag @pin.image.url(:medium) %>
+  </div>
+
+  <div class="panel-body user">
+    <%= @pin.user.name if @pin.user %><br>
+    <%= @pin.description%>
+<!-- allow to edit and delete, if user is creator -->
+<% if current_user && @pin.user == current_user %>
+  <div class="edit">
+     <%= link_to edit_pin_path(@pin) do %>
+      <span class="glyphicon glyphicon-edit"></span>
+      Editer
+      <% end %>
+    <%= link_to @pin, method: :delete, data: { confirm: 'Êtes-vous sûr?' } do %>
+      <span class="glyphicon glyphicon-trash"></span>
+      Effacer
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+  </div>
+  <h4>Commentaires</h4>
+  <div id="comments"> 
+  <%= render :partial => @pin.comments %>
+  </div> 
+  <%= simple_form_for [@pin, Comment.new] do |f| %>
+  <p>
+    <%= f.input :body, :label => "Nouveau commentaire", as: :text, input_html:{rows: "3"} %>
+  </p>
+  <p> <%= f.submit "Ajouter un commentaire", class: "btn btn-primary" %></p>
+  <% end %>
+  </div>
+  </div>
+</div>
