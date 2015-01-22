@@ -26,11 +26,11 @@
         <li><%= link_to "Sign up", new_user_registration_path, class: "red" %></li>
         <% end %>
         <li><p class="lang">
-            English
+            <%= link_to_unless I18n.locale == :en, "English", set_language_english_path %>
             |
-            <a href="/?locale=es">Espanol</a>
+            <%= link_to_unless I18n.locale == :es, "Espanol", set_language_spanish_path %>
             |
-            <a href="/?locale=fr">Français</a>
+            <%= link_to_unless I18n.locale == :fr, "Français", set_language_french_path %>
             </p></li>
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do  
-scope "(:locale)", locale: /en|es|fr/ do
-end
+  get "set_language/english"
+  get "set_language/spanish"
+  get "set_language/french"
 
 resources :comments 
 
@@ -11,10 +12,9 @@ end
   resources :pins
 
   devise_for :users
-  get '/:locale' => 'pins#index'
   root "pins#index"
-  get "imprint"=> "pages#imprint"
-  get "contact"=> "pages#contact"
+  get "imprint" => "pages#imprint"
+  get "contact" => "pages#contact"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -26,11 +26,12 @@
         <li><%= link_to "Signar", new_user_registration_path, class: "red" %></li>
         <% end %>
         <li><p class="lang">
-            <a href="/?locale=en">English</a>
+            <%= link_to_unless I18n.locale == :en, "English", set_language_english_path %>
             |
-            <a href="/?locale=es">Espanol</a>
+            <%= link_to_unless I18n.locale == :es, "Espanol", set_language_spanish_path %>
             |
-            Français</li>
+            <%= link_to_unless I18n.locale == :fr, "Français", set_language_french_path %>
+            </p></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
