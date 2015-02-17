@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  #before_filter :user_signed_in
+ before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @comments = Comment.all
@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
     @comment = @pin.comments.create(comment_params)
     @comment.pin_id = @pin.id
     @comment.user_id = current_user.id
-
   if @comment.save
     flash[:success] = "Comment created!"
     redirect_to pin_path(@pin)
@@ -22,7 +21,6 @@ class CommentsController < ApplicationController
     flash[:error] = "No comment created!"
     redirect_to pin_path(@pin)
   end
-
 end
 
   def show
@@ -54,7 +52,6 @@ end
     redirect_to @pin
   end
 
-  private
     def comment_params 
       params.require(:comment).permit(:body)
   end
